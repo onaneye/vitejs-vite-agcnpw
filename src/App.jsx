@@ -1,28 +1,39 @@
-import './App.css';
-import { Container, Typography, Box, Grid } from '@mui/material';
-import TourCard from './Components/TourCard';
+import React from 'react';
+import "./App.css"
+import TourCard from "./Components/TourCard"
+import Navbar from "./Components/Navbar"
+import {Container, Grid, Box } from "@mui/material"
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-// import ResponsiveAppBar from './Components/Navbar';
+// Define custom theme
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#e1cbf2"
+    },
+    secondary: {
+      main: "#b34ff8"
+    }
+  }
+});
 
-function App() {
-  // const [Products, setProducts] = React.useState([]);
 
-  // React.useEffect(() => {}, [1]);
-
-  console.log('hello');
+export default function App() {
+ 
 
   return (
-    <>
-      <Container>
-        {/* <Box>
-          <ResponsiveAppBar xs={{ mb: 2 }} />
-        </Box> */}
-        <Grid container spacing={2}>
-          <TourCard />
-        </Grid>
-      </Container>
-    </>
+    <ThemeProvider theme={theme}>
+      <Navbar/>
+    <Container>
+      <Box></Box>
+      <Grid container spacing ={2}>
+      <TourCard />
+      <TourCard />
+      <TourCard />
+      </Grid>
+     </Container>
+    
+    </ThemeProvider>
+    
   );
 }
-
-export default App;
